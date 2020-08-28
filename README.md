@@ -52,7 +52,7 @@ The state machine records both the last-known position of the encoder, as well a
 
 ### Interrupts vs. Polling
 
-The constructor sets up interrupts on both input pins for both rising and falling edge.  Whenever an edge is detected, the values of both pins are read to construct a new state, and then a state machine decides what to do based on the current state and the new state.  The interrupt handler does get passed the pin that changed state to trigger the interrupt, but the state machine needs to know both values, and we don't really know how promptly our interrupt got services, so the handler simply reads both input pins, regardless of which one triggered the interrupt.
+The constructor sets up interrupts on both input pins for both rising and falling edge.  Whenever an edge is detected, the values of both pins are read to construct a new state, and then a state machine decides what to do based on the current state and the new state.  The interrupt handler does get passed the pin that changed state to trigger the interrupt, but the state machine needs to know both values, and we don't really know how promptly our interrupt got serviced, so the handler simply reads both input pins, regardless of which one triggered the interrupt.
 
 What's important is that it takes no CPU cycles to wait on an interrupt - we're not polling; we're relying on a hardware notification to bring us back to life.  In contrast, a polling-based approach would take one core of our CPU close to 100% usage, and power consumption would go up dramatically!
 
