@@ -35,7 +35,7 @@ class Encoder:
                 if self.direction == "L":
                     self.value = self.value - 1
                     if self.callback is not None:
-                        self.callback(self.value)
+                        self.callback(self.value, self.direction)
 
         elif self.state == "10": # R3 or L1
             if newState == "11": # Turned left 1
@@ -44,7 +44,7 @@ class Encoder:
                 if self.direction == "R":
                     self.value = self.value + 1
                     if self.callback is not None:
-                        self.callback(self.value)
+                        self.callback(self.value, self.direction)
 
         else: # self.state == "11"
             if newState == "01": # Turned left 1
@@ -55,11 +55,11 @@ class Encoder:
                 if self.direction == "L":
                     self.value = self.value - 1
                     if self.callback is not None:
-                        self.callback(self.value)
+                        self.callback(self.value, self.direction)
                 elif self.direction == "R":
                     self.value = self.value + 1
                     if self.callback is not None:
-                        self.callback(self.value)
+                        self.callback(self.value, self.direction)
                 
         self.state = newState
 

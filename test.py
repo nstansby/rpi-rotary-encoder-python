@@ -4,8 +4,8 @@ import time
 import RPi.GPIO as GPIO
 from encoder import Encoder
 
-def valueChanged(value):
-    print("* New value: {}".format(value))
+def valueChanged(value, direction):
+    print("* New value: {}, Direction: {}".format(value, direction))
 
 GPIO.setmode(GPIO.BCM)
 
