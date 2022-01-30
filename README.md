@@ -1,5 +1,5 @@
-# 
-This simple code is a for of great inital work made by nstansby. I've added tew tweaks so I can use the code for my little project
+# Description
+This simple code is a fork of great inital work made by nstansby. I've added tew tweaks so I can use the code for my little project
 * possibility to set the min and max limits for the counter
 * possibility to initiate the counter with an arbitrary value
 * capability of setting the value of the counter at any time
