@@ -1,19 +1,31 @@
+# Description
+This simple code is a fork of great inital work made by nstansby. I've added tew tweaks so I can use the code for my little project
+* possibility to set the min and max limits for the counter
+* possibility to initiate the counter with an arbitrary value
+* capability of setting the value of the counter at any time
+
 # rpi-rotary-encoder-python
 I had a quick look for some clean code to listen to a rotary encoder attached to a Raspberry Pi, and didn't find any... so I rolled my own.
 
 ## Usage
 
-First of all, you're going to need to instantiate an Encoder instance, and give it the two GPIO pins to listen on:
+First of all, you're going to need to instantiate an Encoder instance, and give it the two GPIO pins to listen on as well as additional start parameters - limits (min and max) and start counter value:
 
 ```python
 from encoder import Encoder
-e1 = Encoder(26, 19)
+e1 = Encoder(26, 19, 0, 100, 20)
 ```
 
 Now at any time you want, you can read the current value of the encoder as follows:
 
 ```python
 value = e1.getValue()
+```
+
+It is also possible to set the counter at any time to desired value:
+
+```python
+e1.setValue(value)
 ```
 
 OK, but what if you don't want to have to keep checking for a value change?  Instead, you can define a callback function that will be invoked whenever the value changes:
