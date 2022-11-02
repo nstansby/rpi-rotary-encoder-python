@@ -1,3 +1,11 @@
+# *** *PLEASE NOTE* ***
+
+*The 4.0 release of CircuitPython added the `rotaryio` package.  This is almost certainly a better way to interface with a rotary encoder than some janky code that I threw together.  You can learn more about `rotaryio` on [Adafruit's learning pages](https://learn.adafruit.com/rotary-encoder/circuitpython).*
+
+*I'll leave this repo around in case it's useful for someone stuck with an earlier CircuitPython version, or someone trying to implement some crazy specific behaviour... but I don't plan to spend any further time developing or maintaining this.*
+
+---
+
 # rpi-rotary-encoder-python
 I had a quick look for some clean code to listen to a rotary encoder attached to a Raspberry Pi, and didn't find any... so I rolled my own.
 
@@ -35,7 +43,7 @@ I had a couple of important design goals in mind when I put this together:
 
 * I wanted it to be efficient, because I have a battery-powered project in mind that will use this.  That means no polling of GPIOs; interrupts are the way to go.
 
-I was using a fairly high quality [Bournes 24-pulse encoder from Adafruit](https://www.adafruit.com/product/377) when I developed it, and also tested it with a cheaper [Alpha 12-pulse encoder from Elmwood Elecronics](https://elmwoodelectronics.ca/products/9117), and it works fine with both.  It should work with just about any rotary encoder that uses the standard 2-phase quadrature encoding scheme.
+I was using a fairly high quality [Bournes 24-pulse encoder from Adafruit](https://www.adafruit.com/product/377) when I developed it, and also tested it with a cheaper Alpha 12-pulse encoder from ~Elmwood Elecronics~ (Edit: RIP Elmwood; we'll miss you!), and it works fine with both.  It should work with just about any rotary encoder that uses the standard 2-phase quadrature encoding scheme.
 
 The principle of operation is pretty straightforward; there are 4 possible states for the encoder outputs, which I refer to as:
 
